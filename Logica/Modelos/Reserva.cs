@@ -10,8 +10,8 @@ public class Reserva
 
     public int Codigo { get; }
     public DateTime FechaRegistro { get; }
-    public string NombreCliente { get => nombreCliente; private set => nombreCliente = value.Trim(); }
-    public string CorreoCliente { get => correoCliente; private set => correoCliente = value.Trim(); }
+    public string NombreCliente { get => nombreCliente; set => nombreCliente = value.Trim(); }
+    public string CorreoCliente { get => correoCliente; set => correoCliente = value.Trim(); }
     public TipoSala Sala { get; }
     public DateTime FechaReserva { get; }
     public int Horas { get; }
