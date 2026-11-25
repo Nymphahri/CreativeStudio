@@ -2,10 +2,31 @@
 USE master;
 GO
 IF DB_ID(N'CreativeStudioDB') IS NULL
-    CREATE DATABASE CreativeStudioDB;
+BEGIN
+    IF SERVERPROPERTY('IsLocalDB') = 1
+    BEGIN
+        -- Cada instancia de LocalDB tiene su propia carpeta para master.
+        DECLARE @carpeta nvarchar(4000);
+        SELECT @carpeta = LEFT(physical_name,
+            LEN(physical_name) - CHARINDEX(N'\', REVERSE(physical_name)) + 1)
+        FROM sys.master_files WHERE database_id = 1 AND file_id = 1;
+
+        DECLARE @crear nvarchar(max) =
+            N'CREATE DATABASE CreativeStudioDB ON PRIMARY
+              (NAME = CreativeStudioDB, FILENAME = N''' +
+              REPLACE(@carpeta, N'''', N'''''') + N'CreativeStudioDB.mdf'')
+              LOG ON (NAME = CreativeStudioDB_log, FILENAME = N''' +
+              REPLACE(@carpeta, N'''', N'''''') + N'CreativeStudioDB_log.ldf'');';
+        EXEC sys.sp_executesql @crear;
+    END
+    ELSE
+        EXEC (N'CREATE DATABASE CreativeStudioDB');
+END;
 GO
+-- Mantener USE y las operaciones en el mismo lote: si falla USE, se detiene el lote.
 USE CreativeStudioDB;
-GO
+IF DB_NAME() <> N'CreativeStudioDB'
+    THROW 50001, N'No se pudo seleccionar CreativeStudioDB.', 1;
 SET XACT_ABORT ON;
 SET QUOTED_IDENTIFIER ON;
 SET ANSI_NULLS ON;
