@@ -1,4 +1,3 @@
--- Ejecutar el archivo completo en SQL Server Management Studio.
 USE master;
 GO
 IF DB_ID(N'CreativeStudioDB') IS NULL
@@ -72,7 +71,7 @@ IF NOT EXISTS (SELECT 1 FROM dbo.Reserva)
 BEGIN
     INSERT INTO dbo.Reserva (NombreCliente, CorreoCliente, TipoReserva, FechaReserva,
         CantidadHoras, IdTipoSala, TarifaAplicada)
-    SELECT N'Estudio Brisa', N'brisa@example.com', N'Corporativa', DATEADD(day, 3, SYSDATETIME()),
+    SELECT N'Grace Romero', N'gromero@outlook.com', N'Corporativa', DATEADD(day, 3, SYSDATETIME()),
         3, IdTipoSala, TarifaPorHora FROM dbo.TipoSala WHERE Nombre = N'Video y streaming';
 END;
 COMMIT;
@@ -86,7 +85,7 @@ JOIN dbo.TipoSala AS s ON s.IdTipoSala = r.IdTipoSala;
 BEGIN TRANSACTION;
 INSERT INTO dbo.Reserva (NombreCliente, CorreoCliente, TipoReserva, FechaReserva,
     CantidadHoras, IdTipoSala, TarifaAplicada)
-SELECT N'Prueba', N'prueba@example.com', N'Individual', DATEADD(day, 1, SYSDATETIME()),
+SELECT N'Grace Romero', N'gromero@outlook.com', N'Individual', DATEADD(day, 1, SYSDATETIME()),
     1, IdTipoSala, TarifaPorHora FROM dbo.TipoSala WHERE Nombre = N'Podcast';
 DECLARE @ReservaPrueba int = SCOPE_IDENTITY();
 DELETE FROM dbo.Reserva WHERE IdReserva = @ReservaPrueba;

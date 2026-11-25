@@ -6,11 +6,11 @@ namespace Presentacion;
 partial class FrmReservas
 {
     private System.ComponentModel.IContainer? components;
-    private Label titulo = null!;
+    private Label lblTitulo = null!;
     private Panel encabezado = null!;
     private Label lblBuscar = null!;
-    private Label subtitulo = null!;
-    private Label edicion = null!;
+    private Label lblSubtitulo = null!;
+    private Label lblEdicion = null!;
     private Label lblNombre = null!;
     private Guna2TextBox txtNombre = null!;
     private Label lblCorreo = null!;
@@ -20,19 +20,19 @@ partial class FrmReservas
     private Label lblSala = null!;
     private Guna2ComboBox cmbSala = null!;
     private Label lblFecha = null!;
-    private DateTimePicker fecha = null!;
+    private DateTimePicker dtpFecha = null!;
     private Label lblHoras = null!;
-    private NumericUpDown horas = null!;
-    private Label detalle = null!;
-    private Label importe = null!;
-    private Guna2Button guardar = null!;
-    private Guna2Button nuevo = null!;
-    private Label lista = null!;
-    private Guna2TextBox buscar = null!;
-    private DataGridView tabla = null!;
-    private Label resumen = null!;
-    private Guna2Button editar = null!;
-    private Guna2Button eliminar = null!;
+    private NumericUpDown nudHoras = null!;
+    private Label lblDetalle = null!;
+    private Label lblImporte = null!;
+    private Guna2Button btnGuardar = null!;
+    private Guna2Button btnNuevo = null!;
+    private Label lblLista = null!;
+    private Guna2TextBox txtBuscar = null!;
+    private DataGridView dgvTabla = null!;
+    private Label lblResumen = null!;
+    private Guna2Button btnEditar = null!;
+    private Guna2Button btnEliminar = null!;
     private ErrorProvider errores = null!;
 
     protected override void Dispose(bool disposing)
@@ -44,279 +44,449 @@ partial class FrmReservas
     private void InitializeComponent()
     {
         components = new System.ComponentModel.Container();
+        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges26 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges27 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges28 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges29 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges30 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges31 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges32 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+        DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+        DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+        DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges33 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+        Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
         errores = new ErrorProvider(components);
-        SuspendLayout();
-        Text = "Creative Studio | Reservas";
-        BackColor = Color.FromArgb(251, 249, 247);
-        Font = new Font("Segoe UI", 10F);
-        AutoScaleMode = AutoScaleMode.Font;
-        AutoScaleDimensions = new SizeF(7F, 17F);
-        ClientSize = new Size(1085, 665);
-        MinimumSize = new Size(1030, 705);
-        StartPosition = FormStartPosition.CenterScreen;
-        titulo = new Label();
-        titulo.Name = "titulo";
-        titulo.Location = new Point(22, 9);
-        titulo.Size = new Size(390, 44);
-        titulo.Text = "Creative Studio";
-        titulo.ForeColor = Color.White;
-        titulo.Font = new Font("Segoe UI", 23F, FontStyle.Bold);
+        lblTitulo = new Label();
         encabezado = new Panel();
+        lblSubtitulo = new Label();
+        lblEdicion = new Label();
+        lblNombre = new Label();
+        txtNombre = new Guna2TextBox();
+        lblCorreo = new Label();
+        txtCorreo = new Guna2TextBox();
+        lblTipo = new Label();
+        cmbTipo = new Guna2ComboBox();
+        lblSala = new Label();
+        cmbSala = new Guna2ComboBox();
+        lblFecha = new Label();
+        dtpFecha = new DateTimePicker();
+        lblHoras = new Label();
+        nudHoras = new NumericUpDown();
+        lblDetalle = new Label();
+        lblImporte = new Label();
+        btnGuardar = new Guna2Button();
+        btnNuevo = new Guna2Button();
+        lblLista = new Label();
+        txtBuscar = new Guna2TextBox();
+        lblBuscar = new Label();
+        dgvTabla = new DataGridView();
+        lblResumen = new Label();
+        btnEditar = new Guna2Button();
+        btnEliminar = new Guna2Button();
+        ((System.ComponentModel.ISupportInitialize)errores).BeginInit();
+        encabezado.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize)nudHoras).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)dgvTabla).BeginInit();
+        SuspendLayout();
+        // 
+        // errores
+        // 
+        errores.ContainerControl = this;
+        // 
+        // lblTitulo
+        // 
+        lblTitulo.Font = new Font("Segoe UI", 23F, FontStyle.Bold);
+        lblTitulo.ForeColor = Color.White;
+        lblTitulo.Location = new Point(22, 9);
+        lblTitulo.Name = "lblTitulo";
+        lblTitulo.Size = new Size(390, 44);
+        lblTitulo.TabIndex = 0;
+        lblTitulo.Text = "Creative Studio";
+        // 
+        // encabezado
+        // 
+        encabezado.BackColor = Color.FromArgb(85, 58, 76);
+        encabezado.Controls.Add(lblTitulo);
+        encabezado.Controls.Add(lblSubtitulo);
+        encabezado.Dock = DockStyle.Top;
+        encabezado.Location = new Point(0, 0);
         encabezado.Name = "encabezado";
         encabezado.Size = new Size(1085, 88);
-        encabezado.Dock = DockStyle.Top;
-        encabezado.BackColor = Color.FromArgb(85, 58, 76);
-        encabezado.Controls.Add(titulo);
-        Controls.Add(encabezado);
-
-        subtitulo = new Label();
-        subtitulo.Name = "subtitulo";
-        subtitulo.Location = new Point(25, 54);
-        subtitulo.Size = new Size(380, 24);
-        subtitulo.Text = "Reservas del estudio";
-        subtitulo.ForeColor = Color.FromArgb(243, 230, 236);
-        subtitulo.Font = new Font("Segoe UI", 10F, FontStyle.Regular);
-        encabezado.Controls.Add(subtitulo);
-
-        edicion = new Label();
-        edicion.Name = "edicion";
-        edicion.Location = new Point(24, 108);
-        edicion.Size = new Size(305, 31);
-        edicion.Text = "Nueva reserva";
-        edicion.ForeColor = Color.FromArgb(56, 45, 55);
-        edicion.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-        Controls.Add(edicion);
-
-        lblNombre = new Label();
-        lblNombre.Name = "lblNombre";
-        lblNombre.Location = new Point(24, 149);
-        lblNombre.Size = new Size(305, 21);
-        lblNombre.Text = "Nombre del cliente";
+        encabezado.TabIndex = 0;
+        // 
+        // lblSubtitulo
+        // 
+        lblSubtitulo.Font = new Font("Segoe UI", 10F);
+        lblSubtitulo.ForeColor = Color.FromArgb(243, 230, 236);
+        lblSubtitulo.Location = new Point(25, 54);
+        lblSubtitulo.Name = "lblSubtitulo";
+        lblSubtitulo.Size = new Size(380, 24);
+        lblSubtitulo.TabIndex = 1;
+        lblSubtitulo.Text = "Reservas del estudio";
+        // 
+        // lblEdicion
+        // 
+        lblEdicion.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+        lblEdicion.ForeColor = Color.FromArgb(56, 45, 55);
+        lblEdicion.Location = new Point(24, 108);
+        lblEdicion.Name = "lblEdicion";
+        lblEdicion.Size = new Size(305, 31);
+        lblEdicion.TabIndex = 1;
+        lblEdicion.Text = "Nueva reserva";
+        // 
+        // lblNombre
+        // 
+        lblNombre.Font = new Font("Segoe UI", 10F);
         lblNombre.ForeColor = Color.FromArgb(90, 81, 87);
-        lblNombre.Font = new Font("Segoe UI", 10F, FontStyle.Regular);
-        Controls.Add(lblNombre);
-
-        txtNombre = new Guna2TextBox();
-        txtNombre.Name = "txtNombre";
-        txtNombre.Location = new Point(24, 172);
-        txtNombre.Size = new Size(305, 36);
+        lblNombre.Location = new Point(24, 149);
+        lblNombre.Name = "lblNombre";
+        lblNombre.Size = new Size(305, 21);
+        lblNombre.TabIndex = 2;
+        lblNombre.Text = "Nombre del cliente";
+        // 
+        // txtNombre
+        // 
         txtNombre.BorderRadius = 6;
+        txtNombre.CustomizableEdges = customizableEdges19;
+        txtNombre.DefaultText = "";
+        txtNombre.Font = new Font("Segoe UI", 9F);
+        txtNombre.Location = new Point(24, 172);
+        txtNombre.Name = "txtNombre";
         txtNombre.PlaceholderText = "Persona o empresa";
-        Controls.Add(txtNombre);
-
-        lblCorreo = new Label();
-        lblCorreo.Name = "lblCorreo";
-        lblCorreo.Location = new Point(24, 218);
-        lblCorreo.Size = new Size(310, 22);
-        lblCorreo.Text = "Correo electrónico";
+        txtNombre.SelectedText = "";
+        txtNombre.ShadowDecoration.CustomizableEdges = customizableEdges20;
+        txtNombre.Size = new Size(305, 36);
+        txtNombre.TabIndex = 3;
+        // 
+        // lblCorreo
+        // 
+        lblCorreo.Font = new Font("Segoe UI", 10F);
         lblCorreo.ForeColor = Color.FromArgb(90, 81, 87);
-        lblCorreo.Font = new Font("Segoe UI", 10F, FontStyle.Regular);
-        Controls.Add(lblCorreo);
-
-        txtCorreo = new Guna2TextBox();
-        txtCorreo.Name = "txtCorreo";
-        txtCorreo.Location = new Point(24, 241);
-        txtCorreo.Size = new Size(305, 36);
+        lblCorreo.Location = new Point(24, 218);
+        lblCorreo.Name = "lblCorreo";
+        lblCorreo.Size = new Size(310, 22);
+        lblCorreo.TabIndex = 4;
+        lblCorreo.Text = "Correo electrónico";
+        // 
+        // txtCorreo
+        // 
         txtCorreo.BorderRadius = 6;
+        txtCorreo.CustomizableEdges = customizableEdges21;
+        txtCorreo.DefaultText = "";
+        txtCorreo.Font = new Font("Segoe UI", 9F);
+        txtCorreo.Location = new Point(24, 241);
+        txtCorreo.Name = "txtCorreo";
         txtCorreo.PlaceholderText = "cliente@ejemplo.cr";
-        Controls.Add(txtCorreo);
-
-        lblTipo = new Label();
-        lblTipo.Name = "lblTipo";
-        lblTipo.Location = new Point(24, 288);
-        lblTipo.Size = new Size(295, 22);
-        lblTipo.Text = "Tipo de reserva";
+        txtCorreo.SelectedText = "";
+        txtCorreo.ShadowDecoration.CustomizableEdges = customizableEdges22;
+        txtCorreo.Size = new Size(305, 36);
+        txtCorreo.TabIndex = 5;
+        // 
+        // lblTipo
+        // 
+        lblTipo.Font = new Font("Segoe UI", 10F);
         lblTipo.ForeColor = Color.FromArgb(90, 81, 87);
-        lblTipo.Font = new Font("Segoe UI", 10F, FontStyle.Regular);
-        Controls.Add(lblTipo);
-
-        cmbTipo = new Guna2ComboBox();
-        cmbTipo.Name = "cmbTipo";
-        cmbTipo.Location = new Point(24, 311);
-        cmbTipo.Size = new Size(305, 36);
+        lblTipo.Location = new Point(24, 288);
+        lblTipo.Name = "lblTipo";
+        lblTipo.Size = new Size(295, 22);
+        lblTipo.TabIndex = 6;
+        lblTipo.Text = "Tipo de reserva";
+        // 
+        // cmbTipo
+        // 
+        cmbTipo.BackColor = Color.Transparent;
         cmbTipo.BorderRadius = 6;
+        cmbTipo.CustomizableEdges = customizableEdges23;
+        cmbTipo.DrawMode = DrawMode.OwnerDrawFixed;
         cmbTipo.DropDownStyle = ComboBoxStyle.DropDownList;
-        Controls.Add(cmbTipo);
-
-        lblSala = new Label();
-        lblSala.Name = "lblSala";
-        lblSala.Location = new Point(24, 358);
-        lblSala.Size = new Size(295, 22);
-        lblSala.Text = "Sala";
+        cmbTipo.FocusedColor = Color.Empty;
+        cmbTipo.Font = new Font("Segoe UI", 10F);
+        cmbTipo.ForeColor = Color.FromArgb(68, 88, 112);
+        cmbTipo.ItemHeight = 30;
+        cmbTipo.Location = new Point(24, 311);
+        cmbTipo.Name = "cmbTipo";
+        cmbTipo.ShadowDecoration.CustomizableEdges = customizableEdges24;
+        cmbTipo.Size = new Size(305, 36);
+        cmbTipo.TabIndex = 7;
+        // 
+        // lblSala
+        // 
+        lblSala.Font = new Font("Segoe UI", 10F);
         lblSala.ForeColor = Color.FromArgb(90, 81, 87);
-        lblSala.Font = new Font("Segoe UI", 10F, FontStyle.Regular);
-        Controls.Add(lblSala);
-
-        cmbSala = new Guna2ComboBox();
-        cmbSala.Name = "cmbSala";
-        cmbSala.Location = new Point(24, 381);
-        cmbSala.Size = new Size(305, 36);
+        lblSala.Location = new Point(24, 358);
+        lblSala.Name = "lblSala";
+        lblSala.Size = new Size(295, 22);
+        lblSala.TabIndex = 8;
+        lblSala.Text = "Sala";
+        // 
+        // cmbSala
+        // 
+        cmbSala.BackColor = Color.Transparent;
         cmbSala.BorderRadius = 6;
+        cmbSala.CustomizableEdges = customizableEdges25;
+        cmbSala.DrawMode = DrawMode.OwnerDrawFixed;
         cmbSala.DropDownStyle = ComboBoxStyle.DropDownList;
-        Controls.Add(cmbSala);
-
-        lblFecha = new Label();
-        lblFecha.Name = "lblFecha";
-        lblFecha.Location = new Point(24, 430);
-        lblFecha.Size = new Size(210, 22);
-        lblFecha.Text = "Fecha y hora";
+        cmbSala.FocusedColor = Color.Empty;
+        cmbSala.Font = new Font("Segoe UI", 10F);
+        cmbSala.ForeColor = Color.FromArgb(68, 88, 112);
+        cmbSala.ItemHeight = 30;
+        cmbSala.Location = new Point(24, 381);
+        cmbSala.Name = "cmbSala";
+        cmbSala.ShadowDecoration.CustomizableEdges = customizableEdges26;
+        cmbSala.Size = new Size(305, 36);
+        cmbSala.TabIndex = 9;
+        // 
+        // lblFecha
+        // 
+        lblFecha.Font = new Font("Segoe UI", 10F);
         lblFecha.ForeColor = Color.FromArgb(90, 81, 87);
-        lblFecha.Font = new Font("Segoe UI", 10F, FontStyle.Regular);
-        Controls.Add(lblFecha);
-
-        fecha = new DateTimePicker();
-        fecha.Name = "fecha";
-        fecha.Location = new Point(24, 455);
-        fecha.Size = new Size(205, 28);
-        fecha.Format = DateTimePickerFormat.Custom;
-        fecha.CustomFormat = "dd/MM/yyyy  HH:mm";
-        fecha.ShowUpDown = true;
-        Controls.Add(fecha);
-
-        lblHoras = new Label();
-        lblHoras.Name = "lblHoras";
-        lblHoras.Location = new Point(245, 430);
-        lblHoras.Size = new Size(85, 22);
-        lblHoras.Text = "Horas";
+        lblFecha.Location = new Point(24, 430);
+        lblFecha.Name = "lblFecha";
+        lblFecha.Size = new Size(210, 22);
+        lblFecha.TabIndex = 10;
+        lblFecha.Text = "Fecha y hora";
+        // 
+        // dtpFecha
+        // 
+        dtpFecha.CustomFormat = "dd/MM/yyyy  HH:mm";
+        dtpFecha.Format = DateTimePickerFormat.Custom;
+        dtpFecha.Location = new Point(24, 455);
+        dtpFecha.Name = "dtpFecha";
+        dtpFecha.ShowUpDown = true;
+        dtpFecha.Size = new Size(205, 25);
+        dtpFecha.TabIndex = 11;
+        // 
+        // lblHoras
+        // 
+        lblHoras.Font = new Font("Segoe UI", 10F);
         lblHoras.ForeColor = Color.FromArgb(90, 81, 87);
-        lblHoras.Font = new Font("Segoe UI", 10F, FontStyle.Regular);
-        Controls.Add(lblHoras);
-
-        horas = new NumericUpDown();
-        horas.Name = "horas";
-        horas.Location = new Point(245, 455);
-        horas.Size = new Size(84, 28);
-        horas.Minimum = 1;
-        horas.Maximum = 4;
-        horas.Value = 1;
-        Controls.Add(horas);
-
-        detalle = new Label();
-        detalle.Name = "detalle";
-        detalle.Location = new Point(24, 505);
-        detalle.Size = new Size(330, 23);
-        detalle.Text = "";
-        detalle.ForeColor = Color.FromArgb(90, 81, 87);
-        detalle.Font = new Font("Segoe UI", 10F, FontStyle.Regular);
-        Controls.Add(detalle);
-
-        importe = new Label();
-        importe.Name = "importe";
-        importe.Location = new Point(24, 532);
-        importe.Size = new Size(330, 33);
-        importe.Text = "";
-        importe.ForeColor = Color.FromArgb(56, 45, 55);
-        importe.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
-        Controls.Add(importe);
-
-        guardar = new Guna2Button();
-        guardar.Name = "guardar";
-        guardar.Location = new Point(24, 601);
-        guardar.Size = new Size(158, 36);
-        guardar.Text = "Registrar";
-        guardar.FillColor = Color.FromArgb(111, 68, 96);
-        guardar.BorderRadius = 6;
-        guardar.ForeColor = Color.White;
-        Controls.Add(guardar);
-
-        nuevo = new Guna2Button();
-        nuevo.Name = "nuevo";
-        nuevo.Location = new Point(192, 601);
-        nuevo.Size = new Size(137, 36);
-        nuevo.Text = "Limpiar";
-        nuevo.FillColor = Color.FromArgb(238, 232, 235);
-        nuevo.BorderRadius = 6;
-        nuevo.ForeColor = Color.FromArgb(82, 52, 70);
-        Controls.Add(nuevo);
-
-        lista = new Label();
-        lista.Name = "lista";
-        lista.Location = new Point(365, 108);
-        lista.Size = new Size(400, 36);
-        lista.Text = "Reservas registradas";
-        lista.ForeColor = Color.FromArgb(56, 45, 55);
-        lista.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
-        Controls.Add(lista);
-
-        buscar = new Guna2TextBox();
-        buscar.Name = "buscar";
-        lblBuscar = new Label();
-        lblBuscar.Name = "lblBuscar";
-        lblBuscar.Text = "Buscar cliente";
-        lblBuscar.Location = new Point(365, 157);
-        lblBuscar.Size = new Size(100, 25);
+        lblHoras.Location = new Point(245, 430);
+        lblHoras.Name = "lblHoras";
+        lblHoras.Size = new Size(85, 22);
+        lblHoras.TabIndex = 12;
+        lblHoras.Text = "Horas";
+        // 
+        // nudHoras
+        // 
+        nudHoras.Location = new Point(245, 455);
+        nudHoras.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
+        nudHoras.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+        nudHoras.Name = "nudHoras";
+        nudHoras.Size = new Size(84, 25);
+        nudHoras.TabIndex = 13;
+        nudHoras.Value = new decimal(new int[] { 1, 0, 0, 0 });
+        // 
+        // lblDetalle
+        // 
+        lblDetalle.Font = new Font("Segoe UI", 10F);
+        lblDetalle.ForeColor = Color.FromArgb(90, 81, 87);
+        lblDetalle.Location = new Point(24, 505);
+        lblDetalle.Name = "lblDetalle";
+        lblDetalle.Size = new Size(330, 23);
+        lblDetalle.TabIndex = 14;
+        // 
+        // lblImporte
+        // 
+        lblImporte.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+        lblImporte.ForeColor = Color.FromArgb(56, 45, 55);
+        lblImporte.Location = new Point(24, 532);
+        lblImporte.Name = "lblImporte";
+        lblImporte.Size = new Size(330, 33);
+        lblImporte.TabIndex = 15;
+        // 
+        // btnGuardar
+        // 
+        btnGuardar.BorderRadius = 6;
+        btnGuardar.CustomizableEdges = customizableEdges27;
+        btnGuardar.FillColor = Color.FromArgb(111, 68, 96);
+        btnGuardar.Font = new Font("Segoe UI", 9F);
+        btnGuardar.ForeColor = Color.White;
+        btnGuardar.Location = new Point(24, 601);
+        btnGuardar.Name = "btnGuardar";
+        btnGuardar.ShadowDecoration.CustomizableEdges = customizableEdges28;
+        btnGuardar.Size = new Size(158, 36);
+        btnGuardar.TabIndex = 16;
+        btnGuardar.Text = "Registrar";
+        // 
+        // btnNuevo
+        // 
+        btnNuevo.BorderRadius = 6;
+        btnNuevo.CustomizableEdges = customizableEdges29;
+        btnNuevo.FillColor = Color.FromArgb(238, 232, 235);
+        btnNuevo.Font = new Font("Segoe UI", 9F);
+        btnNuevo.ForeColor = Color.FromArgb(82, 52, 70);
+        btnNuevo.Location = new Point(192, 601);
+        btnNuevo.Name = "btnNuevo";
+        btnNuevo.ShadowDecoration.CustomizableEdges = customizableEdges30;
+        btnNuevo.Size = new Size(137, 36);
+        btnNuevo.TabIndex = 17;
+        btnNuevo.Text = "Limpiar";
+        // 
+        // lblLista
+        // 
+        lblLista.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+        lblLista.ForeColor = Color.FromArgb(56, 45, 55);
+        lblLista.Location = new Point(365, 108);
+        lblLista.Name = "lblLista";
+        lblLista.Size = new Size(400, 36);
+        lblLista.TabIndex = 18;
+        lblLista.Text = "Reservas registradas";
+        // 
+        // txtBuscar
+        // 
+        txtBuscar.BorderRadius = 6;
+        txtBuscar.CustomizableEdges = customizableEdges31;
+        txtBuscar.DefaultText = "";
+        txtBuscar.Font = new Font("Segoe UI", 9F);
+        txtBuscar.Location = new Point(470, 149);
+        txtBuscar.Name = "txtBuscar";
+        txtBuscar.PlaceholderText = "Buscar por nombre del cliente";
+        txtBuscar.SelectedText = "";
+        txtBuscar.ShadowDecoration.CustomizableEdges = customizableEdges32;
+        txtBuscar.Size = new Size(320, 36);
+        txtBuscar.TabIndex = 20;
+        // 
+        // lblBuscar
+        // 
         lblBuscar.ForeColor = Color.FromArgb(90, 81, 87);
+        lblBuscar.Location = new Point(365, 157);
+        lblBuscar.Name = "lblBuscar";
+        lblBuscar.Size = new Size(100, 25);
+        lblBuscar.TabIndex = 19;
+        lblBuscar.Text = "Buscar cliente";
+        // 
+        // dgvTabla
+        // 
+        dgvTabla.AllowUserToAddRows = false;
+        dgvTabla.AllowUserToDeleteRows = false;
+        dataGridViewCellStyle4.BackColor = Color.FromArgb(251, 248, 250);
+        dgvTabla.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+        dgvTabla.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        dgvTabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        dgvTabla.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+        dgvTabla.BackgroundColor = Color.White;
+        dgvTabla.BorderStyle = BorderStyle.None;
+        dgvTabla.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+        dgvTabla.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+        dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+        dataGridViewCellStyle5.BackColor = Color.FromArgb(237, 231, 234);
+        dataGridViewCellStyle5.Font = new Font("Segoe UI", 10F);
+        dataGridViewCellStyle5.ForeColor = Color.FromArgb(72, 49, 64);
+        dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(237, 231, 234);
+        dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(72, 49, 64);
+        dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+        dgvTabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+        dgvTabla.ColumnHeadersHeight = 37;
+        dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+        dataGridViewCellStyle6.BackColor = SystemColors.Window;
+        dataGridViewCellStyle6.Font = new Font("Segoe UI", 10F);
+        dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+        dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(234, 218, 229);
+        dataGridViewCellStyle6.SelectionForeColor = Color.Black;
+        dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+        dgvTabla.DefaultCellStyle = dataGridViewCellStyle6;
+        dgvTabla.EnableHeadersVisualStyles = false;
+        dgvTabla.GridColor = Color.FromArgb(230, 223, 227);
+        dgvTabla.Location = new Point(365, 204);
+        dgvTabla.MultiSelect = false;
+        dgvTabla.Name = "dgvTabla";
+        dgvTabla.ReadOnly = true;
+        dgvTabla.RowHeadersVisible = false;
+        dgvTabla.RowTemplate.Height = 35;
+        dgvTabla.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        dgvTabla.Size = new Size(696, 347);
+        dgvTabla.TabIndex = 21;
+        // 
+        // lblResumen
+        // 
+        lblResumen.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        lblResumen.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+        lblResumen.ForeColor = Color.FromArgb(56, 45, 55);
+        lblResumen.Location = new Point(365, 563);
+        lblResumen.Name = "lblResumen";
+        lblResumen.Size = new Size(666, 28);
+        lblResumen.TabIndex = 22;
+        // 
+        // btnEditar
+        // 
+        btnEditar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        btnEditar.BorderRadius = 6;
+        btnEditar.CustomizableEdges = customizableEdges33;
+        btnEditar.FillColor = Color.FromArgb(238, 232, 235);
+        btnEditar.Font = new Font("Segoe UI", 9F);
+        btnEditar.ForeColor = Color.FromArgb(82, 52, 70);
+        btnEditar.Location = new Point(365, 601);
+        btnEditar.Name = "btnEditar";
+        btnEditar.ShadowDecoration.CustomizableEdges = customizableEdges34;
+        btnEditar.Size = new Size(120, 36);
+        btnEditar.TabIndex = 23;
+        btnEditar.Text = "Editar";
+        // 
+        // btnEliminar
+        // 
+        btnEliminar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+        btnEliminar.BorderRadius = 6;
+        btnEliminar.CustomizableEdges = customizableEdges35;
+        btnEliminar.FillColor = Color.FromArgb(249, 235, 232);
+        btnEliminar.Font = new Font("Segoe UI", 9F);
+        btnEliminar.ForeColor = Color.FromArgb(139, 55, 53);
+        btnEliminar.Location = new Point(495, 601);
+        btnEliminar.Name = "btnEliminar";
+        btnEliminar.ShadowDecoration.CustomizableEdges = customizableEdges36;
+        btnEliminar.Size = new Size(120, 36);
+        btnEliminar.TabIndex = 24;
+        btnEliminar.Text = "Eliminar";
+        // 
+        // FrmReservas
+        // 
+        AutoScaleDimensions = new SizeF(7F, 17F);
+        AutoScaleMode = AutoScaleMode.Font;
+        BackColor = Color.FromArgb(251, 249, 247);
+        ClientSize = new Size(1085, 666);
+        Controls.Add(encabezado);
+        Controls.Add(lblEdicion);
+        Controls.Add(lblNombre);
+        Controls.Add(txtNombre);
+        Controls.Add(lblCorreo);
+        Controls.Add(txtCorreo);
+        Controls.Add(lblTipo);
+        Controls.Add(cmbTipo);
+        Controls.Add(lblSala);
+        Controls.Add(cmbSala);
+        Controls.Add(lblFecha);
+        Controls.Add(dtpFecha);
+        Controls.Add(lblHoras);
+        Controls.Add(nudHoras);
+        Controls.Add(lblDetalle);
+        Controls.Add(lblImporte);
+        Controls.Add(btnGuardar);
+        Controls.Add(btnNuevo);
+        Controls.Add(lblLista);
         Controls.Add(lblBuscar);
-        buscar.Location = new Point(470, 149);
-        buscar.Size = new Size(320, 36);
-        buscar.BorderRadius = 6;
-        buscar.PlaceholderText = "Buscar por nombre del cliente";
-        Controls.Add(buscar);
-
-        tabla = new DataGridView();
-        tabla.Name = "tabla";
-        tabla.Location = new Point(365, 204);
-        tabla.Size = new Size(696, 347);
-        tabla.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-        tabla.BackgroundColor = Color.White;
-        tabla.BorderStyle = BorderStyle.None;
-        tabla.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-        tabla.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-        tabla.GridColor = Color.FromArgb(230, 223, 227);
-        tabla.AllowUserToAddRows = false;
-        tabla.AllowUserToDeleteRows = false;
-        tabla.ReadOnly = true;
-        tabla.RowHeadersVisible = false;
-        tabla.MultiSelect = false;
-        tabla.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-        tabla.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-        tabla.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-        tabla.AutoGenerateColumns = false;
-        tabla.EnableHeadersVisualStyles = false;
-        tabla.ColumnHeadersHeight = 37;
-        Controls.Add(tabla);
-
-        resumen = new Label();
-        resumen.Name = "resumen";
-        resumen.Location = new Point(365, 563);
-        resumen.Size = new Size(666, 28);
-        resumen.Text = "";
-        resumen.ForeColor = Color.FromArgb(56, 45, 55);
-        resumen.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-        Controls.Add(resumen);
-
-        editar = new Guna2Button();
-        editar.Name = "editar";
-        editar.Location = new Point(365, 601);
-        editar.Size = new Size(120, 36);
-        editar.Text = "Editar";
-        editar.FillColor = Color.FromArgb(238, 232, 235);
-        editar.BorderRadius = 6;
-        editar.ForeColor = Color.FromArgb(82, 52, 70);
-        Controls.Add(editar);
-
-        eliminar = new Guna2Button();
-        eliminar.Name = "eliminar";
-        eliminar.Location = new Point(495, 601);
-        eliminar.Size = new Size(120, 36);
-        eliminar.Text = "Eliminar";
-        eliminar.FillColor = Color.FromArgb(249, 235, 232);
-        eliminar.BorderRadius = 6;
-        eliminar.ForeColor = Color.FromArgb(139, 55, 53);
-        Controls.Add(eliminar);
-        errores.ContainerControl = this;
-        resumen.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-        editar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-        eliminar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-        tabla.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(237, 231, 234);
-        tabla.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(72, 49, 64);
-        tabla.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(237, 231, 234);
-        tabla.ColumnHeadersDefaultCellStyle.SelectionForeColor = Color.FromArgb(72, 49, 64);
-        tabla.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(251, 248, 250);
-        tabla.DefaultCellStyle.SelectionBackColor = Color.FromArgb(234, 218, 229);
-        tabla.DefaultCellStyle.SelectionForeColor = Color.Black;
-        tabla.RowTemplate.Height = 35;
+        Controls.Add(txtBuscar);
+        Controls.Add(dgvTabla);
+        Controls.Add(lblResumen);
+        Controls.Add(btnEditar);
+        Controls.Add(btnEliminar);
+        Font = new Font("Segoe UI", 10F);
+        MinimumSize = new Size(1030, 705);
+        Name = "FrmReservas";
+        StartPosition = FormStartPosition.CenterScreen;
+        Text = "Creative Studio";
+        ((System.ComponentModel.ISupportInitialize)errores).EndInit();
+        encabezado.ResumeLayout(false);
+        ((System.ComponentModel.ISupportInitialize)nudHoras).EndInit();
+        ((System.ComponentModel.ISupportInitialize)dgvTabla).EndInit();
         ResumeLayout(false);
     }
 }

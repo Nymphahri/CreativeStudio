@@ -23,7 +23,7 @@ public partial class FrmReservas : Form
         ];
         foreach (var (titulo, minimo, peso) in columnas)
         {
-            tabla.Columns.Add(new DataGridViewTextBoxColumn
+            dgvTabla.Columns.Add(new DataGridViewTextBoxColumn
             {
                 HeaderText = titulo,
                 MinimumWidth = minimo,
@@ -37,40 +37,40 @@ public partial class FrmReservas : Form
 
         cmbTipo.SelectedIndexChanged += (_, _) => Cotizar();
         cmbSala.SelectedIndexChanged += (_, _) => Cotizar();
-        horas.ValueChanged += (_, _) => Cotizar();
-        buscar.TextChanged += (_, _) => MostrarReservas();
-        guardar.Click += (_, _) => Guardar();
-        nuevo.Click += (_, _) => Limpiar();
-        editar.Click += (_, _) => Editar();
-        eliminar.Click += (_, _) => Eliminar();
-        tabla.CellDoubleClick += (_, e) => { if (e.RowIndex >= 0) Editar(); };
+        nudHoras.ValueChanged += (_, _) => Cotizar();
+        txtBuscar.TextChanged += (_, _) => MostrarReservas();
+        btnGuardar.Click += (_, _) => Guardar();
+        btnNuevo.Click += (_, _) => Limpiar();
+        btnEditar.Click += (_, _) => Editar();
+        btnEliminar.Click += (_, _) => Eliminar();
+        dgvTabla.CellDoubleClick += (_, e) => { if (e.RowIndex >= 0) Editar(); };
         Limpiar();
         MostrarReservas();
     }
 
     private string Colones(decimal valor) => "₡" + valor.ToString("N0", cultura);
     private DatosReserva Leer() => new(txtNombre.Text, txtCorreo.Text, (TipoReserva)cmbTipo.SelectedIndex,
-        (TipoSala)cmbSala.SelectedIndex, fecha.Value, (int)horas.Value);
+        (TipoSala)cmbSala.SelectedIndex, dtpFecha.Value, (int)nudHoras.Value);
 
     private void Cotizar()
     {
         if (cmbSala.SelectedIndex < 0 || cmbTipo.SelectedIndex < 0) return;
         var r = control.Cotizar(Leer());
-        detalle.Text = $"Subtotal {Colones(r.Subtotal)}   ·   Descuento {Colones(r.Descuento)}";
-        importe.Text = $"Total  {Colones(r.Total)}";
+        lblDetalle.Text = $"Subtotal {Colones(r.Subtotal)}   ·   Descuento {Colones(r.Descuento)}";
+        lblImporte.Text = $"Total  {Colones(r.Total)}";
     }
 
     private void Limpiar()
     {
         codigoActual = null;
-        edicion.Text = "Nueva reserva";
-        guardar.Text = "Registrar";
+        lblEdicion.Text = "Nueva reserva";
+        btnGuardar.Text = "Registrar";
         errores.Clear();
         txtNombre.Clear();
         txtCorreo.Clear();
         cmbTipo.SelectedIndex = cmbSala.SelectedIndex = 0;
-        fecha.Value = DateTime.Today.AddDays(1).AddHours(9);
-        horas.Value = 1;
+        dtpFecha.Value = DateTime.Today.AddDays(1).AddHours(9);
+        nudHoras.Value = 1;
         Cotizar();
         txtNombre.Focus();
     }
@@ -82,7 +82,7 @@ public partial class FrmReservas : Form
         {
             [nameof(datos.Nombre)] = txtNombre, [nameof(datos.Correo)] = txtCorreo,
             [nameof(datos.Tipo)] = cmbTipo, [nameof(datos.Sala)] = cmbSala,
-            [nameof(datos.Fecha)] = fecha, [nameof(datos.Horas)] = horas
+            [nameof(datos.Fecha)] = dtpFecha, [nameof(datos.Horas)] = nudHoras
         };
         errores.Clear();
         var pendientes = control.Validar(datos);
@@ -99,46 +99,46 @@ public partial class FrmReservas : Form
             MessageBox.Show(this, ex.Message, "Revisa los datos");
             return;
         }
-        buscar.Clear();
+        txtBuscar.Clear();
         MostrarReservas();
         Limpiar();
     }
 
     private void MostrarReservas()
     {
-        tabla.Rows.Clear();
-        foreach (var r in control.BuscarPorNombre(buscar.Text))
+        dgvTabla.Rows.Clear();
+        foreach (var r in control.BuscarPorNombre(txtBuscar.Text))
         {
-            int fila = tabla.Rows.Add(r.Codigo, r.NombreCliente, r.Tipo,
+            int fila = dgvTabla.Rows.Add(r.Codigo, r.NombreCliente, r.Tipo,
                 r.Sala == TipoSala.Podcast ? "Podcast" : "Video y streaming",
                 r.FechaReserva.ToString("dd/MM/yyyy HH:mm"), r.Horas, Colones(r.Total),
                 r.CorreoCliente, r.FechaRegistro.ToString("dd/MM/yyyy HH:mm"));
-            tabla.Rows[fila].Tag = r;
+            dgvTabla.Rows[fila].Tag = r;
         }
         var (cantidad, monto) = control.Resumen();
-        resumen.Text = $"Reservas: {cantidad}     ·     Total acumulado: {Colones(monto)}";
-        editar.Enabled = eliminar.Enabled = tabla.Rows.Count > 0;
+        lblResumen.Text = $"Reservas: {cantidad}     ·     Total acumulado: {Colones(monto)}";
+        btnEditar.Enabled = btnEliminar.Enabled = dgvTabla.Rows.Count > 0;
     }
 
     private void Editar()
     {
-        if (tabla.CurrentRow?.Tag is not Reserva r) return;
+        if (dgvTabla.CurrentRow?.Tag is not Reserva r) return;
         errores.Clear();
         codigoActual = r.Codigo;
-        edicion.Text = $"Editar reserva #{r.Codigo}";
-        guardar.Text = "Guardar cambios";
+        lblEdicion.Text = $"Editar reserva #{r.Codigo}";
+        btnGuardar.Text = "Guardar cambios";
         txtNombre.Text = r.NombreCliente;
         txtCorreo.Text = r.CorreoCliente;
-        fecha.Value = r.FechaReserva;
+        dtpFecha.Value = r.FechaReserva;
         cmbTipo.SelectedIndex = (int)r.Tipo;
         cmbSala.SelectedIndex = (int)r.Sala;
-        horas.Value = r.Horas;
+        nudHoras.Value = r.Horas;
         Cotizar();
     }
 
     private void Eliminar()
     {
-        if (tabla.CurrentRow?.Tag is not Reserva r) return;
+        if (dgvTabla.CurrentRow?.Tag is not Reserva r) return;
         var respuesta = MessageBox.Show(this, $"¿Eliminar la reserva #{r.Codigo} de {r.NombreCliente}?",
             "Eliminar reserva", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
         if (respuesta != DialogResult.Yes) return;
