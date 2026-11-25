@@ -65,6 +65,7 @@ partial class FrmReservas
         Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges34 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
         Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges35 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
         Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges36 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReservas));
         errores = new ErrorProvider(components);
         lblTitulo = new Label();
         encabezado = new Panel();
@@ -93,10 +94,12 @@ partial class FrmReservas
         lblResumen = new Label();
         btnEditar = new Guna2Button();
         btnEliminar = new Guna2Button();
+        picLogo = new PictureBox();
         ((System.ComponentModel.ISupportInitialize)errores).BeginInit();
         encabezado.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)nudHoras).BeginInit();
         ((System.ComponentModel.ISupportInitialize)dgvTabla).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
         SuspendLayout();
         // 
         // errores
@@ -404,7 +407,7 @@ partial class FrmReservas
         dgvTabla.RowHeadersVisible = false;
         dgvTabla.RowTemplate.Height = 35;
         dgvTabla.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        dgvTabla.Size = new Size(696, 347);
+        dgvTabla.Size = new Size(696, 302);
         dgvTabla.TabIndex = 21;
         // 
         // lblResumen
@@ -447,12 +450,22 @@ partial class FrmReservas
         btnEliminar.TabIndex = 24;
         btnEliminar.Text = "Eliminar";
         // 
+        // picLogo
+        // 
+        picLogo.Image = (Image)resources.GetObject("picLogo.Image");
+        picLogo.Location = new Point(786, 512);
+        picLogo.Name = "picLogo";
+        picLogo.Size = new Size(341, 202);
+        picLogo.TabIndex = 2;
+        picLogo.TabStop = false;
+        // 
         // FrmReservas
         // 
         AutoScaleDimensions = new SizeF(7F, 17F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = Color.FromArgb(251, 249, 247);
         ClientSize = new Size(1085, 666);
+        Controls.Add(picLogo);
         Controls.Add(encabezado);
         Controls.Add(lblEdicion);
         Controls.Add(lblNombre);
@@ -487,6 +500,9 @@ partial class FrmReservas
         encabezado.ResumeLayout(false);
         ((System.ComponentModel.ISupportInitialize)nudHoras).EndInit();
         ((System.ComponentModel.ISupportInitialize)dgvTabla).EndInit();
+        ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
         ResumeLayout(false);
     }
+
+    private PictureBox picLogo;
 }
