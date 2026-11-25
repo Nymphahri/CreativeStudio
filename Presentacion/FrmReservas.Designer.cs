@@ -269,7 +269,9 @@ partial class FrmReservas
         tabla.RowHeadersVisible = false;
         tabla.MultiSelect = false;
         tabla.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+        tabla.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        tabla.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+        tabla.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
         tabla.AutoGenerateColumns = false;
         tabla.EnableHeadersVisualStyles = false;
         tabla.ColumnHeadersHeight = 37;

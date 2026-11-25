@@ -15,8 +15,25 @@ public partial class FrmReservas : Form
         InitializeComponent();
         cmbTipo.Items.AddRange(["Individual", "Corporativa"]);
         cmbSala.Items.AddRange(["Sala de podcast", "Sala de video y streaming"]);
-        foreach (string titulo in new[] { "Código", "Cliente", "Tipo", "Sala", "Fecha y hora", "Horas", "Total", "Correo", "Registrada el" })
-            tabla.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = titulo, SortMode = DataGridViewColumnSortMode.NotSortable });
+        (string titulo, int minimo, int peso)[] columnas =
+        [
+            ("Código", 52, 55), ("Cliente", 62, 105), ("Tipo", 82, 100),
+            ("Sala", 62, 98), ("Inicio", 84, 100), ("Horas", 42, 45),
+            ("Total", 70, 75), ("Correo", 78, 145), ("Registro", 80, 125)
+        ];
+        foreach (var (titulo, minimo, peso) in columnas)
+        {
+            tabla.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                HeaderText = titulo,
+                MinimumWidth = minimo,
+                Width = minimo,
+                AutoSizeMode = titulo is "Código" or "Tipo" or "Horas" or "Total"
+                    ? DataGridViewAutoSizeColumnMode.None : DataGridViewAutoSizeColumnMode.Fill,
+                FillWeight = peso,
+                SortMode = DataGridViewColumnSortMode.NotSortable
+            });
+        }
 
         cmbTipo.SelectedIndexChanged += (_, _) => Cotizar();
         cmbSala.SelectedIndexChanged += (_, _) => Cotizar();
