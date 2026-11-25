@@ -72,7 +72,7 @@ IF NOT EXISTS (SELECT 1 FROM dbo.Reserva)
 BEGIN
     INSERT INTO dbo.Reserva (NombreCliente, CorreoCliente, TipoReserva, FechaReserva,
         CantidadHoras, IdTipoSala, TarifaAplicada)
-    SELECT N'Estudio Brisa', N'brisa@example.com', N'Corporativa', DATEADD(day, 3, SYSDATETIME()),
+    SELECT N'Grace Romero', N'gromero@outlook.com', N'Corporativa', DATEADD(day, 3, SYSDATETIME()),
         3, IdTipoSala, TarifaPorHora FROM dbo.TipoSala WHERE Nombre = N'Video y streaming';
 END;
 COMMIT;
